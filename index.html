@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hotel Book</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fadeInUp {
+        animation: fadeInUp 1s ease forwards;
+      }
+      @keyframes scaleUp {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .scaleUp {
+        animation: scaleUp 0.8s ease forwards;
+      }
+
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(90deg, #5a67d8, #38b2ac);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Hero background overlay */
+      /* .hero-bg {
+        background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center/cover;
+        position: relative;
+      } */
+      .hero-bg::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(56, 48, 48, 0.7);
+        z-index: 0;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body class="text-gray-800 bg-gray-50 font-sans">
+    <!-- Navbar -->
+    <nav
+      class="flex flex-col md:flex-row items-center justify-between bg-[#ebf4f1] px-6 py-4 shadow-md sticky top-0 z-50"
+    >
+      <a href="#" class="flex items-center space-x-3">
+        <i class="fa-solid fa-hotel text-indigo-600 text-4xl"></i>
+        <span class="text-2xl font-bold text-indigo-700 select-none">HotelBook</span>
+      </a>
+      <div class="flex flex-wrap gap-4">
+        <button
+          class="font-semibold px-5 py-2 rounded-full hover:bg-amber-200 shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          <i class="fa-solid fa-house"></i> Home Page
+        </button>
+        <button
+          class="font-semibold px-5 py-2 rounded-full hover:bg-amber-200 shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          <i class="fa-solid fa-rocket"></i> Landing
+        </button>
+        <button
+          class="font-semibold px-5 py-2 rounded-full hover:bg-amber-200 shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          <i class="fa-solid fa-users"></i> Our Team
+        </button>
+        <button
+          class="font-semibold px-5 py-2 rounded-full hover:bg-amber-200 shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          <i class="fa-solid fa-envelope"></i> Contact Us
+        </button>
+      </div>
+    </nav>
+
+    <!-- What We Do (Hero) -->
+<section
+  class="relative text-center px-6 py-32 md:py-48 fadeInUp overflow-hidden"
+  aria-label="Hero section describing what we do"
+>
+  <!-- Background video -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="absolute top-0 left-0 w-full h-full object-cover z-0"
+    poster="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80"
+  >
+    <source src="vid.mov" type="video/webm" />
+    <!-- <source src="https://cdn.videvo.net/videvo_files/video/free/2018-06/small_watermarked/180507_01_City_Night_4k_003_preview.mp4" type="video/mp4" /> -->
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+
+  <!-- Content -->
+  <div class="hero-content relative z-20 max-w-5xl mx-auto text-white">
+    <h1 class="text-4xl md:text-6xl font-extrabold gradient-text drop-shadow-lg">
+      What We Do
+    </h1>
+    <p class="mt-6 text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.
+    </p>
+    <button
+      class="mt-10 px-10 py-4 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-600 rounded-full text-xl font-semibold text-white shadow-lg hover:scale-105 hover:brightness-110 transition transform duration-300 scaleUp"
+    >
+      Learn More <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </div>
+</section>
+
+
+    <!-- Cards -->
+    <section
+      class="grid grid-cols-1 md:grid-cols-3 gap-10 px-6 py-20 max-w-6xl mx-auto"
+      aria-label="Our services cards"
+    >
+      <div
+        class="bg-white rounded-3xl p-10 shadow-xl text-center hover:shadow-2xl transition-shadow duration-500 scaleUp"
+        style="animation-delay: 0.2s"
+      >
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/008/442/061/non_2x/search-icon-glyph-symbol-magnifying-glass-vector.jpg"
+          alt="Research icon"
+          class="w-20 h-20 mx-auto mb-6"
+        />
+        <h3 class="text-3xl font-semibold mb-4 text-indigo-600">Research</h3>
+        <p class="text-gray-600 text-lg leading-relaxed">
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <button
+          class="mt-8 px-8 py-3 border border-indigo-500 text-indigo-700 rounded-full font-semibold hover:bg-indigo-600 hover:text-white shadow-md transition transform hover:scale-105"
+        >
+          More <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+      <div
+        class="bg-white rounded-3xl p-10 shadow-xl text-center hover:shadow-2xl transition-shadow duration-500 scaleUp"
+        style="animation-delay: 0.4s"
+      >
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjmMrP5lkt7IzlvPI_Op-EFDIAMryOloiXl0pOnkIKOrnV3jwPda4v9Bfec55xTP4dlg0&usqp=CAU"
+          alt="Vision icon"
+          class="w-20 h-20 mx-auto mb-6"
+        />
+        <h3 class="text-3xl font-semibold mb-4 text-indigo-600">Vision</h3>
+        <p class="text-gray-600 text-lg leading-relaxed">
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <button
+          class="mt-8 px-8 py-3 border border-indigo-500 text-indigo-700 rounded-full font-semibold hover:bg-indigo-600 hover:text-white shadow-md transition transform hover:scale-105"
+        >
+          More <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+      <div
+        class="bg-white rounded-3xl p-10 shadow-xl text-center hover:shadow-2xl transition-shadow duration-500 scaleUp"
+        style="animation-delay: 0.6s"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/4539/4539064.png"
+          alt="Design icon"
+          class="w-20 h-20 mx-auto mb-6"
+        />
+        <h3 class="text-3xl font-semibold mb-4 text-indigo-600">Design</h3>
+        <p class="text-gray-600 text-lg leading-relaxed">
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <button
+          class="mt-8 px-8 py-3 border border-indigo-500 text-indigo-700 rounded-full font-semibold hover:bg-indigo-600 hover:text-white shadow-md transition transform hover:scale-105"
+        >
+          More <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section
+      class="bg-gray-100 px-6 py-20 fadeInUp"
+      aria-label="Residential projects"
+    >
+      <h2
+        class="text-3xl md:text-5xl text-center font-extrabold text-indigo-700 mb-4 gradient-text drop-shadow-lg"
+      >
+        900 Residential Projects
+      </h2>
+      <p
+        class="text-lg text-center max-w-2xl mx-auto mt-4 text-gray-700 leading-relaxed"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+      </p>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto"
+      >
+        <!-- Repeat project cards as needed -->
+        <div
+          class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="https://assets.nicepagecdn.com/d2cc3eaa/6272611/images/dfdfdff.jpg"
+            alt="Project"
+            class="w-full h-64 object-cover rounded-t-3xl"
+          />
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-semibold text-indigo-700 mb-2">
+              22 Bishopsgate, London
+            </h3>
+            <p class="text-gray-600">Sample text. Click to select the Text Element.</p>
+          </div>
+        </div>
+        <div
+          class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="https://assets.nicepagecdn.com/d2cc3eaa/6272611/images/city90.jpg"
+            alt="Project"
+            class="w-full h-64 object-cover rounded-t-3xl"
+          />
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-semibold text-indigo-700 mb-2">
+              22 Bishopsgate, London
+            </h3>
+            <p class="text-gray-600">Sample text. Click to select the Text Element.</p>
+          </div>
+        </div>
+        <div
+          class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="https://assets.nicepagecdn.com/d2cc3eaa/6272611/images/ghgh.jpg"
+            alt="Project"
+            class="w-full h-64 object-cover rounded-t-3xl"
+          />
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-semibold text-indigo-700 mb-2">
+              22 Bishopsgate, London
+            </h3>
+            <p class="text-gray-600">Sample text. Click to select the Text Element.</p>
+          </div>
+        </div>
+        <div
+          class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="https://assets.nicepagecdn.com/d2cc3eaa/6272611/images/city235.jpg"
+            alt="Project"
+            class="w-full h-64 object-cover rounded-t-3xl"
+          />
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-semibold text-indigo-700 mb-2">
+              22 Bishopsgate, London
+            </h3>
+            <p class="text-gray-600">Sample text. Click to select the Text Element.</p>
+          </div>
+        </div>
+        <div
+          class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="https://assets.nicepagecdn.com/d2cc3eaa/6272611/images/456.jpg"
+            alt="Project"
+            class="w-full h-64 object-cover rounded-t-3xl"
+          />
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-semibold text-indigo-700 mb-2">
+              22 Bishopsgate, London
+            </h3>
+            <p class="text-gray-600">Sample text. Click to select the Text Element.</p>
+          </div>
+        </div>
+        <div
+          class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="https://assets.nicepagecdn.com/d2cc3eaa/6272611/images/city-9.jpg"
+            alt="Project"
+            class="w-full h-64 object-cover rounded-t-3xl"
+          />
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-semibold text-indigo-700 mb-2">
+              22 Bishopsgate, London
+            </h3>
+            <p class="text-gray-600">Sample text. Click to select the Text Element.</p>
+          </div>
+        </div>
+        <div
+          class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="https://assets.nicepagecdn.com/d2cc3eaa/6272611/images/4680.jpg"
+            alt="Project"
+            class="w-full h-64 object-cover rounded-t-3xl"
+          />
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-semibold text-indigo-700 mb-2">
+              22 Bishopsgate, London
+            </h3>
+            <p class="text-gray-600">Sample text. Click to select the Text Element.</p>
+          </div>
+        </div>
+        <div
+          class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="https://assets.nicepagecdn.com/d2cc3eaa/6272611/images/luxury-pool-villa-spectacular-contemporary-design-digital-art-real-estate-home-house-property-ge_1258-150762.jpg"
+            alt="Project"
+            class="w-full h-64 object-cover rounded-t-3xl"
+          />
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-semibold text-indigo-700 mb-2">
+              22 Bishopsgate, London
+            </h3>
+            <p class="text-gray-600">Sample text. Click to select the Text Element.</p>
+          </div>
+        </div>
+        <div
+          class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500"
+        >
+          <img
+            src="https://assets.nicepagecdn.com/d2cc3eaa/6272611/images/low-angle-shot-modern-building-w.jpg"
+            alt="Project"
+            class="w-full h-64 object-cover rounded-t-3xl"
+          />
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-semibold text-indigo-700 mb-2">
+              22 Bishopsgate, London
+            </h3>
+            <p class="text-gray-600">Sample text. Click to select the Text Element.</p>
+          </div>
+        </div>
+        <!-- Add more cards similarly -->
+      </div>
+    </section>
+
+    <!-- Learn More Section -->
+    <section
+      class="grid grid-cols-1 md:grid-cols-2 gap-10 px-6 py-24 items-center fadeInUp"
+      aria-label="Learn more about our projects"
+    >
+      <div>
+        <h2
+          class="text-3xl md:text-5xl font-extrabold text-indigo-700 gradient-text mb-6 drop-shadow-lg"
+        >
+          Our projects stem from a commitment to the transformative role of ideas.
+        </h2>
+        <button
+          class="px-8 py-3 bg-indigo-100 border border-purple-400 rounded-full font-bold hover:bg-indigo-600 hover:text-white shadow-md transition transform hover:scale-105"
+        >
+          Learn More <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+      <div>
+        <img
+          src="https://assets.nicepagecdn.com/d2cc3eaa/6272611/images/abstract-architecture-building_7.jpg"
+          alt="Learn More"
+          class="rounded-xl w-full h-auto object-cover shadow-lg"
+        />
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      class="relative bg-[#383030] text-white px-6 py-20 fadeInUp"
+      aria-label="Contact us section"
+    >
+      <div
+        class="absolute inset-0 bg-cover bg-center opacity-30 rounded-xl"
+        style="background-image: url('https://img.freepik.com/free-photo/swimming-pool-beach-luxury-hotel-type-entertainment-complex-amara-dolce-vita-luxury-hotel-resort-tekirova-kemer-turkey_146671-18726.jpg');"
+      ></div>
+      <div class="relative z-10 max-w-4xl mx-auto">
+        <h2 class="text-center text-4xl mb-12 font-extrabold gradient-text drop-shadow-lg">
+          Contact Us
+        </h2>
+        <form
+          class="flex flex-col md:flex-row gap-6 justify-center mb-12"
+          aria-label="Contact form"
+        >
+          <input
+            type="text"
+            placeholder="Enter Your Name"
+            class="bg-transparent border-b border-white text-white placeholder-white px-4 py-3 w-full md:w-72 focus:outline-none focus:border-pink-400 transition"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Enter Your Email"
+            class="bg-transparent border-b border-white text-white placeholder-white px-4 py-3 w-full md:w-72 focus:outline-none focus:border-pink-400 transition"
+            required
+          />
+          <button
+            type="submit"
+            class="bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-600 text-white font-bold px-8 py-3 rounded-full shadow-lg hover:brightness-110 transition transform hover:scale-105"
+          >
+            Submit
+          </button>
+        </form>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-black">
+          <div
+            class="bg-white p-8 rounded-3xl text-center shadow-lg hover:shadow-2xl transition-shadow duration-500"
+          >
+            <div
+              class="flex items-center justify-center gap-4 mb-6 text-indigo-700"
+            >
+              <i class="fa-solid fa-phone fa-xl"></i>
+              <h4 class="text-2xl font-bold">Call us</h4>
+            </div>
+            <p class="text-lg">1 (234) 567-891<br />1 (234) 987-654</p>
+          </div>
+          <div
+            class="bg-white p-8 rounded-3xl text-center shadow-lg hover:shadow-2xl transition-shadow duration-500"
+          >
+            <div
+              class="flex items-center justify-center gap-4 mb-6 text-indigo-700"
+            >
+              <i class="fa-solid fa-location-dot fa-xl"></i>
+              <h4 class="text-2xl font-bold">Location</h4>
+            </div>
+            <p class="text-lg">121 Rock Sreet, 21 Avenue, New York, NY 92103-9000</p>
+          </div>
+          <div
+            class="bg-white p-8 rounded-3xl text-center shadow-lg hover:shadow-2xl transition-shadow duration-500"
+          >
+            <div
+              class="flex items-center justify-center gap-4 mb-6 text-indigo-700"
+            >
+              <i class="fa-solid fa-clock fa-xl"></i>
+              <h4 class="text-2xl font-bold">Hours</h4>
+            </div>
+            <p class="text-lg">Mon – Fri …… 11 am – 8 pm, Sat, Sun  …… 6 am – 8 pm</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <iframe
+      class="w-full h-[450px] border-0"
+      loading="lazy"
+      allowfullscreen=""
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.03616677766!2d-74.30934281004733!3d40.697539946605225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1727365097291!5m2!1sen!2sbd"
+    ></iframe>
+
+    <!-- Footer -->
+    <footer class="text-center py-10 bg-white shadow-inner">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnNbf01n3s9Qcs2aWk_jno9MIlDNpcNXO-RA&s"
+        alt="Footer Logo"
+        class="mx-auto w-40 h-auto"
+      />
+    </footer>
+  </body>
+</html>
